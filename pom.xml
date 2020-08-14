@@ -11,7 +11,7 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
-  <groupId>org.ko.microservice</groupId>
+  <groupId>org.ko</groupId>
   <artifactId>naming-of-zk</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -21,11 +21,13 @@
   <url>http://www.example.com</url>
 
   <modules>
-    <module>client</module>
+    <module>client1</module>
+    <module>client2</module>
     <module>client-sdk</module>
     <module>server1</module>
     <module>server2</module>
     <module>server3</module>
+    <module>server-sdk</module>
   </modules>
 
   <properties>

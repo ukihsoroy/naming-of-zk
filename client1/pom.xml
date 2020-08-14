@@ -9,9 +9,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>server3</artifactId>
+	<artifactId>client1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>server3</name>
+	<name>client1</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
