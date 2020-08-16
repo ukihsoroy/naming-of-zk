@@ -1,4 +1,4 @@
-package org.ko.namingofzk.zk.util;
+package org.ko.namingofzk.sdk.client.zk;
 
 
 import org.I0Itec.zkclient.*;
@@ -9,12 +9,12 @@ import java.util.List;
 /**
  * zk监听
  */
-public class ZkClientWatcher {
+public class ZkClientAddressWatcher {
 
     //zk conn
     private final ZkClient zkClient;
 
-    public ZkClientWatcher(String connectString, int sessionTimeout) {
+    public ZkClientAddressWatcher(String connectString, int sessionTimeout) {
         zkClient= new ZkClient(new ZkConnection(connectString), sessionTimeout);
     }
 
@@ -52,6 +52,7 @@ public class ZkClientWatcher {
             }
         });
     }
+
     //对父节点添加监听子节点变化。
     public void watchChild(String path){
         zkClient.subscribeChildChanges(path, new IZkChildListener() {

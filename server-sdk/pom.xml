@@ -24,11 +24,15 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
     <!-- zkclient -->
     <dependency>
-      <groupId>com.101tec</groupId>
+      <groupId>org.ko</groupId>
       <artifactId>zkclient</artifactId>
-      <version>0.11</version>
+      <version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
 

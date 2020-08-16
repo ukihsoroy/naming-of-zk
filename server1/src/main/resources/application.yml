@@ -1,2 +1,9 @@
 server:
   port: 8081
+
+zk:
+  conn: 39.105.164.165:2181
+  sessionTimeOut: 50000
+  server:
+    path: /root/naming/service1/server1
+    address: 127.0.0.1:${server.port}/serve
