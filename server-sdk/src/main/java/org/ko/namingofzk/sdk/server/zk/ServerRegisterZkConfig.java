@@ -11,7 +11,8 @@ import javax.annotation.PostConstruct;
 @Component
 public class ServerRegisterZkConfig {
 
-    @Autowired private ZkProperties zkProperties;
+    @Autowired
+    private ZkProperties zkProperties;
 
     @PostConstruct
     public void doConstruct() throws Exception {
@@ -31,6 +32,7 @@ public class ServerRegisterZkConfig {
             zkClientCrud.createPersistent(zkProperties.getServer().getPath(), true);
             zkClientCrud.writeData(zkProperties.getServer().getPath(), zkProperties.getServer().getAddress());
         }
+
 
 
     }

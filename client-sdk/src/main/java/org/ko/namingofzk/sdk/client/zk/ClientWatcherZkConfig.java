@@ -20,11 +20,13 @@ public class ClientWatcherZkConfig {
     @Autowired
     private ServerAddressHolder holder;
 
+    private ZkClient zkClient;
+
     @PostConstruct
     public void doConstruct() throws Exception {
         System.out.println("初始化：PostConstruct");
 
-        ZkClient zkClient= new ZkClient(
+        zkClient = new ZkClient(
                 new ZkConnection(zkProperties.getConn()),
                 zkProperties.getSessionTimeOut());
 

@@ -95,4 +95,7 @@ public class ZkClientCrud<T> {
         zkClient.deleteRecursive(path);
     }
 
+    public ZkClient getZkClient() {
+        return zkClient;
+    }
 }

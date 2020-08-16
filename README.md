@@ -12,3 +12,4 @@ servers --> service2 --> server2/server3
 
 2. client节点启动后，读取zk对应的server地址，缓存本地；创建监听，当节点变化后更新地址数据发起请求；
 3. servers与zk之间维护心跳；
+4. 父节点维护master path, 从节点维护请求路径；

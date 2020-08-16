@@ -1,11 +1,11 @@
 package org.ko.namingofzk.sdk.client.zk;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Service
+@Component
 public class ServerAddressHolder {
 
     private static final Map<String, String> container = new ConcurrentHashMap<>();
