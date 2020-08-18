@@ -1,26 +1,25 @@
 package org.ko.namingofzk.sdk.client.zk;
 
+import org.omg.CORBA.portable.ValueOutputStream;
 import org.springframework.stereotype.Component;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 @Component
 public class ServerAddressHolder {
 
-    private static final Map<String, String> container = new ConcurrentHashMap<>();
-
-    private volatile String key;
+    private static final List<String> container = new CopyOnWriteArrayList<>();
 
     public String getUrl() {
-        return container.get(key);
+        return container.get(0);
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void clear () {
+        container.clear();
     }
 
-    public void set(String key, String value) {
-        container.put(key, value);
+    public void set(List<String> urls) {
+        container.addAll(urls);
     }
 }

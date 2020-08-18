@@ -1,6 +1,5 @@
 package org.ko.namingofzk.zk.util;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.I0Itec.zkclient.ZkClient;
 import org.I0Itec.zkclient.serialize.ZkSerializer;
@@ -15,11 +14,7 @@ import java.util.List;
  */
 public class ZkClientCrud<T> {
 
-    private final ObjectMapper mapper = new ObjectMapper();
-
     private final ZkClient zkClient;
-
-    private final Class<T> clazz;
 
     final static Logger logger = LoggerFactory.getLogger(ZkClientCrud.class);
 
@@ -27,13 +22,10 @@ public class ZkClientCrud<T> {
      * 获取zk 操作
      * @param connectString 连接串
      * @param sessionTimeout 超时时间
-     * @param zkSerializer 序列化
-     * @param clazz 封装类型
      */
-    public ZkClientCrud(String connectString, int sessionTimeout, ZkSerializer zkSerializer, Class<T> clazz) {
+    public ZkClientCrud(String connectString, int sessionTimeout) {
         logger.info("链接zk开始");
-        zkClient = new ZkClient(connectString, sessionTimeout, sessionTimeout, zkSerializer);
-        this.clazz = clazz;
+        zkClient = new ZkClient(connectString, sessionTimeout, sessionTimeout);
     }
 
     public void createEphemeral(String path,Object data){
@@ -72,22 +64,11 @@ public class ZkClientCrud<T> {
     }
 
     public T readData(String path){
-        String data = zkClient.readData(path).toString();
-        try {
-            return mapper.readValue(data, clazz);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return zkClient.readData(path);
     }
 
     public void writeData(String path, Object source){
-        try {
-            String data = mapper.writeValueAsString(source);
-            zkClient.writeData(path, data);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
+        zkClient.writeData(path, source);
     }
 
     //递归删除

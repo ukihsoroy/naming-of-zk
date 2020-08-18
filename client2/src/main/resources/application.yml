@@ -1,2 +1,8 @@
 server:
   port: 8002
+
+zk:
+  conn:
+  sessionTimeOut: 50000
+  client:
+    path: /root/naming/service2

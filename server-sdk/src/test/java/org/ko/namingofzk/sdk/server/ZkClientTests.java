@@ -8,7 +8,7 @@ public class ZkClientTests {
 
     @Test
     public void testZkClient() {
-        ZkClient zkClient = new ZkClient("39.105.164.165:2181");//建立连接
+        ZkClient zkClient = new ZkClient("");//建立连接
         // zkClient.exists('/root'); //判断目录是否存在
         zkClient.create("/root","mydata", CreateMode.PERSISTENT);//创建目录并写入数据
         String data=zkClient.readData("/root");
