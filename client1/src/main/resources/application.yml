@@ -2,7 +2,7 @@ server:
   port: 8001
 
 zk:
-  conn:
+  conn: 127.0.0.1:2181
   sessionTimeOut: 50000
   client:
     path: /root/naming/service1
